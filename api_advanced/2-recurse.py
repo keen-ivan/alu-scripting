@@ -9,10 +9,10 @@ def recurse(subreddit, hot_list=[], after=None):
     headers = {'User-Agent': 'Mozilla/5.0'}
     params = {"after": after}
     response = requests.get(
-                            url,
-                            headers=headers,
-                            params=params,
-                            allow_redirects=False)
+        url,
+        headers=headers,
+        params=params,
+        allow_redirects=False)
     if response.status_code == 200:
         data = response.json()["data"]
         hot_list += [post["data"]["title"] for post in data["children"]]
